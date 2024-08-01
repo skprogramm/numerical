@@ -5,37 +5,6 @@
 void displayMatrix(double matrix[N][N], int n);
 void gaussElimination(double matrix[N][N], double inverse[N][N], int n);
 
-int main() {
-    int n;
-
-    printf("Enter the size of the matrix (max 10): ");
-    scanf("%d", &n);
-
-    if (n <= 0 || n > N) {
-        printf("Invalid matrix size. Please enter a size between 1 and %d.\n", N);
-        return 1;
-    }
-
-    double matrix[N][N], inverse[N][N];
-
-    printf("Enter the elements of the matrix row-wise:\n");
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            scanf("%lf", &matrix[i][j]);
-        }
-    }
-
-    printf("Original matrix:\n");
-    displayMatrix(matrix, n);
-
-    // Compute inverse using Gauss elimination method
-    gaussElimination(matrix, inverse, n);
-
-    printf("\nInverse matrix:\n");
-    displayMatrix(inverse, n);
-
-    return 0;
-}
 
 // Function to display a matrix
 void displayMatrix(double matrix[N][N], int n) {
@@ -78,4 +47,35 @@ void gaussElimination(double matrix[N][N], double inverse[N][N], int n) {
             }
         }
     }
+}
+int main() {
+    int n;
+
+    printf("Enter the size of the matrix (max 10): ");
+    scanf("%d", &n);
+
+    if (n <= 0 || n > N) {
+        printf("Invalid matrix size. Please enter a size between 1 and %d.\n", N);
+        return 1;
+    }
+
+    double matrix[N][N], inverse[N][N];
+
+    printf("Enter the elements of the matrix row-wise:\n");
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            scanf("%lf", &matrix[i][j]);
+        }
+    }
+
+    printf("Original matrix:\n");
+    displayMatrix(matrix, n);
+
+    // Compute inverse using Gauss elimination method
+    gaussElimination(matrix, inverse, n);
+
+    printf("\nInverse matrix:\n");
+    displayMatrix(inverse, n);
+
+    return 0;
 }
